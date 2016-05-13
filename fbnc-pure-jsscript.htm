@@ -1,0 +1,24 @@
+﻿<script>
+var maxLoop = 100;
+var loopCount = 0;
+
+var out = [];
+var p = [];
+
+while (loopCount < maxLoop) {
+
+	if (isNaN(out[loopCount - 2])) {	
+		out[loopCount] = loopCount;
+		
+		if (loopCount > 0) { p[loopCount] = p[loopCount-1] + "," + loopCount; }
+		else { p[loopCount] = 0; }	
+
+	} else {
+		out[loopCount] = out[loopCount - 2] + out[loopCount - 1];
+		p[loopCount] = p[loopCount - 1] + "," + out[loopCount];
+	}
+	
+	document.writeln("<p>line" + loopCount + " --> " + p[loopCount] + "</p>");
+	loopCount++;
+}
+</script>
